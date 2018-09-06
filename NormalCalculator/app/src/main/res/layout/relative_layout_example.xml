@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/header"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/iv_poster"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:src="@drawable/poster"
+        android:scaleType="fitXY"
+        android:layout_alignBottom="@id/iv_header"
+        android:layout_marginBottom="-75dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/beauty_and_the_beast"
+        android:textSize="18sp"
+        android:layout_alignBottom="@id/iv_header"
+        android:layout_marginLeft="165dp"
+        android:layout_marginBottom="-60dp"
+        android:textColor="@color/text_color"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignBottom="@+id/iv_header"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="-45dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/ic_bookmark_border_black_24dp"/>
+
+</RelativeLayout>
