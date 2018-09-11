@@ -15,7 +15,7 @@ public class ResultActivity extends AppCompatActivity {
     TextView tvBMI;
     Button btnTry;
 
-    int result=0;
+    double result=0.0;
 
 
     @Override
@@ -36,7 +36,7 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private void initVariables(){
-        result=getIntent().getIntExtra("secret",0);
+        result=getIntent().getDoubleExtra("secret",0);
 
         if (result>0){
             if(result<18){

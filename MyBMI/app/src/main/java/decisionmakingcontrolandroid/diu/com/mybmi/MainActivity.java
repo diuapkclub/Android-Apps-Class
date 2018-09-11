@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int height, weight, result;
-                height=Integer.valueOf(etHeight.getText().toString());
-                weight=Integer.valueOf(etWeight.getText().toString());
+                double height, weight, result;
+                height=Double.valueOf(etHeight.getText().toString());
+                weight=Double.valueOf(etWeight.getText().toString());
                 result =(weight/height)*703;
 
                 if (result>0){
