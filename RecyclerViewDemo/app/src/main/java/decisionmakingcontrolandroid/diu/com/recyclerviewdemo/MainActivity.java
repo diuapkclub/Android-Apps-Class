@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -23,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         initVariables();
         initViews();
-        loadData();
         initFunctionality();
+        loadData();
     }
 
     private void initViews(){
@@ -57,5 +58,13 @@ public class MainActivity extends AppCompatActivity {
         rvSettingsList.setLayoutManager
                 (new LinearLayoutManager(context, LinearLayout.VERTICAL, false));
         rvSettingsList.setAdapter(settingsAdapter);
+        loadData();
+        settingsAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("ActivtyLifeCycle", "onPause");
     }
 }
