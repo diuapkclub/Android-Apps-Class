@@ -1,76 +1,77 @@
 package decisionmakingcontrolandroid.diu.com.mediaplayerexample;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tvStartTime, tvEndTime;
-    private ImageView ivPlayPause;
-    private SeekBar seekBar;
-    private static MediaPlayer mMediaPlayer = null;
-    int startTime, endTime;
-    private Handler myHandler = new Handler();;
+    private Button callButton;
+    private final int REQUEST_PHONE_CALL = 111;
+    private final int REQUEST_LOCATION_PERMISSON = 222;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvStartTime = findViewById(R.id.tv_start_time);
-        tvEndTime = findViewById(R.id.tv_end_time);
-        ivPlayPause= findViewById(R.id.iv_play_pause);
-        seekBar = findViewById(R.id.seek_bar);
+        callButton = findViewById(R.id.call);
 
-        ivPlayPause.setOnClickListener(new View.OnClickListener() {
+        callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if(mMediaPlayer != null && !mMediaPlayer.isPlaying()){
-                    ivPlayPause.setImageResource(R.drawable.ic_play_circle_filled_black_24dp);
-                    mMediaPlayer.start();
-                }
-                else if(mMediaPlayer == null){
-                    mMediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.my_music);
-                    ivPlayPause.setImageResource(R.drawable.ic_play_circle_filled_black_24dp);
-                    endTime = mMediaPlayer.getDuration();
-                    startTime = mMediaPlayer.getCurrentPosition();
-                    tvStartTime.setText(startTime);
-                    tvEndTime.setText(endTime);
-                    mMediaPlayer.start();
-                    seekBar.setMax((int)endTime);
-                    seekBar.setProgress((int)startTime);
-                    myHandler.postDelayed(UpdateSongTime,100);
-                }
-                else {
-                    if(mMediaPlayer.isPlaying()){
-                        mMediaPlayer.pause();
-                        ivPlayPause.setImageResource(R.drawable.ic_pause_circle_filled_black_24dp);
-                    }
-                }
+                makeCall();
             }
         });
+
     }
 
-    private Runnable UpdateSongTime = new Runnable() {
-        public void run() {
-            startTime = mMediaPlayer.getCurrentPosition();
-            tvStartTime.setText(String.format("%d min, %d sec",
-                    TimeUnit.MILLISECONDS.toMinutes((long) startTime),
-                    TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
-                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.
-                                    toMinutes((long) startTime)))
-            );
-            seekBar.setProgress((int)startTime);
-            myHandler.postDelayed(this, 100);
+    private void makeCall() {
+
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE_CALL);
+        } else {
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:" + 01746713714));
+            startActivity(callIntent);
         }
-    };
+    }
+
+    private void getLocationPermission(){
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.CALL_PHONE},REQUEST_LOCATION_PERMISSON);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_PHONE_CALL) {
+            // Request for camera permission.
+            makeCall();
+        }
+        else if(requestCode == REQUEST_LOCATION_PERMISSON){
+            Toast.makeText(this, "Location Permission Found!", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
