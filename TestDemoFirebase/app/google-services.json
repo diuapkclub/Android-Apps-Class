@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "527440592814",
+    "firebase_url": "https://fir-tests-13367.firebaseio.com",
+    "project_id": "fir-tests-13367",
+    "storage_bucket": "fir-tests-13367.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:527440592814:android:6297ec8e4bccb833",
+        "android_client_info": {
+          "package_name": "decisionmakingcontrolandroid.diu.com.testdemofirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "527440592814-j768luomqnrh4bfcktafdk8tec95c0sp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "decisionmakingcontrolandroid.diu.com.testdemofirebase",
+            "certificate_hash": "e669a0db519fce205a5a0a69e8652bc2a8506d3f"
+          }
+        },
+        {
+          "client_id": "527440592814-dhdg9jobvoducmdkr7bbf1gqvgbnjrjn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACNyHzwutV8gzYoZboQJGaFYC-ap8gtuo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "527440592814-dhdg9jobvoducmdkr7bbf1gqvgbnjrjn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
