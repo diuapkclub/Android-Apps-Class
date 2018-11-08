@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "722776279996",
+    "firebase_url": "https://myfirebaserealtimedb-79e21.firebaseio.com",
+    "project_id": "myfirebaserealtimedb-79e21",
+    "storage_bucket": "myfirebaserealtimedb-79e21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722776279996:android:7e359de97b24590d",
+        "android_client_info": {
+          "package_name": "decisionmakingcontrolandroid.diu.com.myfirebaserealtimedb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722776279996-smfh1dqdnh25737m301dreq50v6upo85.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "decisionmakingcontrolandroid.diu.com.myfirebaserealtimedb",
+            "certificate_hash": "e669a0db519fce205a5a0a69e8652bc2a8506d3f"
+          }
+        },
+        {
+          "client_id": "722776279996-2g3jb2tildh99nmtn1u772217i0atqbu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0kI4XIpxQiMkhgts6x1dtr23SkzYsRhQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "722776279996-2g3jb2tildh99nmtn1u772217i0atqbu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

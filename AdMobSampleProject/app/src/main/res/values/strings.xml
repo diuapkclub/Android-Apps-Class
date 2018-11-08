@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AdMobSampleProject</string>
+    <string name="app_id">ca-app-pub-6044279038079782~8818348708</string>
+    <string name="app_unit_id">ca-app-pub-6044279038079782/9856808647</string>
+
+    <string name="interstitial_app_id">ca-app-pub-6044279038079782~8818348708</string>
+    <string name="interstitial_unit_id">ca-app-pub-6044279038079782/3463339421</string>
+</resources>
